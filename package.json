@@ -1,0 +1,15 @@
+{
+  "name": "agent-sim",
+  "version": "1.0.0",
+  "description": "Pre-deploy simulation harness for agents — run adversarial scenarios, score trajectories against SLOs, gate on regression",
+  "type": "module",
+  "main": "src/Simulator.js",
+  "scripts": {
+    "test": "node tests/sim.test.js",
+    "demo": "node demo/simulate.js"
+  },
+  "keywords": ["ai", "agent", "evaluation", "simulation", "reliability", "slo", "regression", "adversarial", "testing", "guardrails"],
+  "author": "Shubham Prajapati",
+  "license": "MIT",
+  "engines": { "node": ">=18.0.0" }
+}
