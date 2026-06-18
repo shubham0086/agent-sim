@@ -4,6 +4,8 @@
 > it the way you'd load-test a service: drive it through many scenarios — including adversarial ones —
 > **before** production, score the trajectories against SLOs, and fail the build when a change regresses.
 
+> For project walkthroughs, architecture diagrams, and system context, visit the live portfolio: [my-portfolio-github-io-beta-five.vercel.app](https://my-portfolio-github-io-beta-five.vercel.app)
+
 A zero-dependency pre-deploy simulation harness for agents. It draws the line that makes reliable
 agents possible: the **eval harness** (this — runs scenarios, grades trajectories, aggregates) is
 separate from the **agent harness** (the thing under test, a black-box function that returns a
