@@ -4,12 +4,24 @@
   "description": "Pre-deploy simulation harness for agents — run adversarial scenarios, score trajectories against SLOs, gate on regression",
   "type": "module",
   "main": "src/Simulator.js",
+  "bin": {
+    "agent-sim": "mcp_server.js"
+  },
+  "files": [
+    "src",
+    "mcp_server.js"
+  ],
   "scripts": {
     "test": "node tests/sim.test.js",
+    "test:mcp": "node tests/mcp.test.js",
+    "start": "node mcp_server.js",
     "demo": "node demo/simulate.js"
   },
-  "keywords": ["ai", "agent", "evaluation", "simulation", "reliability", "slo", "regression", "adversarial", "testing", "guardrails"],
+  "keywords": ["ai", "agent", "evaluation", "simulation", "reliability", "slo", "regression", "adversarial", "testing", "guardrails", "mcp"],
   "author": "Shubham Prajapati",
   "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  },
   "engines": { "node": ">=18.0.0" }
 }
