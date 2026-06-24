@@ -11,7 +11,7 @@ const ok = (label) => { console.log(`  ✓ ${label}`); passed++; };
 // 1. Tool surface
 {
   const names = TOOLS.map((t) => t.name).sort();
-  assert.deepStrictEqual(names, ['compare_baseline', 'evaluate_run']);
+  assert.deepStrictEqual(names, ['compare_baseline', 'evaluate_run', 'sim_info']);
   for (const t of TOOLS) assert.ok(t.inputSchema && t.description, `${t.name} has schema+desc`);
   ok('exposes evaluate_run + compare_baseline with valid schemas');
 }

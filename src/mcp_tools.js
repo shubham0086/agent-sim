@@ -62,7 +62,7 @@ export const TOOLS = [
       },
       required: ['scenarios'],
     },
-    annotations: { readOnlyHint: true },
+    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
   },
   {
     name: 'compare_baseline',
@@ -93,9 +93,23 @@ export const TOOLS = [
       },
       required: ['metrics', 'baseline'],
     },
-    annotations: { readOnlyHint: true },
+    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
+  },
+  {
+    name: 'sim_info',
+    description:
+      'Lightweight introspection: returns this spoke name, version, and the list of available tool names. ' +
+      'Read-only; takes no arguments.',
+    inputSchema: {
+      type: 'object',
+      properties: {},
+    },
+    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
   },
 ];
+
+// Spoke identity, surfaced by sim_info. Kept in sync with package.json + mcp_server.js.
+export const SPOKE = { name: 'agent-sim', version: '1.0.0' };
 
 export async function handleTool(name, args = {}) {
   switch (name) {
@@ -121,6 +135,9 @@ export async function handleTool(name, args = {}) {
         throw new Error('compare_baseline requires "metrics" and "baseline"');
       }
       return Simulator.compareToBaseline({ metrics: args.metrics }, args.baseline);
+    }
+    case 'sim_info': {
+      return { name: SPOKE.name, version: SPOKE.version, tools: TOOLS.map((t) => t.name) };
     }
     default:
       throw new Error(`Unknown tool: ${name}`);

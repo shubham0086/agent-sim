@@ -1,0 +1,26 @@
+{
+  "//": "Cross-runtime registration example for the agent-sim stdio MCP spoke. Copy the relevant block into your client's MCP config. These are EXAMPLES, not loaded by the server.",
+
+  "//cursor": "Cursor: .cursor/mcp.json (project) or ~/.cursor/mcp.json (global). Uses the same mcpServers shape shown below.",
+  "//cline": "Cline (VS Code): cline_mcp_settings.json. Uses the same mcpServers shape shown below.",
+  "//codex": "Codex CLI: ~/.codex/config.toml uses TOML, not JSON. Equivalent entry shown at the bottom of this file under //codex-toml.",
+
+  "mcpServers": {
+    "agent-sim": {
+      "command": "npx",
+      "args": ["-y", "github:shubham0086/agent-sim"]
+    }
+  },
+
+  "//local-checkout": "To run from a local clone instead of npx, use the node entry below in place of the npx one above.",
+  "//local-example": {
+    "mcpServers": {
+      "agent-sim": {
+        "command": "node",
+        "args": ["mcp_server.js"]
+      }
+    }
+  },
+
+  "//codex-toml": "[mcp_servers.agent-sim]\ncommand = \"npx\"\nargs = [\"-y\", \"github:shubham0086/agent-sim\"]"
+}
